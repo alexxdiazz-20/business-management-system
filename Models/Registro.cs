@@ -1,3 +1,4 @@
+namespace BusinessManagementSystem.Models
 ﻿namespace BusinessManagementSystem.Models
 {
     public class Registro

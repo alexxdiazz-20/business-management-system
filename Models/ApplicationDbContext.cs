@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Win32;
 

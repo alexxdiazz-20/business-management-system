@@ -1,0 +1,53 @@
+﻿@model BusinessManagementSystem.Models.Cliente
+@{
+    ViewData["Title"] = "Editar Cliente";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-warning">
+                    <h4 class="mb-0">Editar Cliente</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <input type="hidden" name="Id" value="@Model.Id" />
+                        <input type="hidden" name="CreatedAt" value="@Model.CreatedAt" />
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Nombre</label>
+                            <input type="text" name="Nombre" value="@Model.Nombre" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Email</label>
+                            <input type="email" name="Email" value="@Model.Email" class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Teléfono</label>
+                            <input type="text" name="Telefono" value="@Model.Telefono" class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Estado</label>
+                            <select name="Estado" class="form-select">
+                                @if (Model.Estado == "activo")
+                                {
+                                    <option value="activo" selected>Activo</option>
+                                    <option value="inactivo">Inactivo</option>
+                                }
+                                else
+                                {
+                                    <option value="activo">Activo</option>
+                                    <option value="inactivo" selected>Inactivo</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-warning">Actualizar</button>
+                            <a href="/Clientes" class="btn btn-secondary">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

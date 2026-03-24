@@ -1,0 +1,49 @@
+﻿@model IEnumerable<BusinessManagementSystem.Models.Cliente>
+@{
+    ViewData["Title"] = "Clientes";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Gestión de Clientes</h2>
+        <a href="/Clientes/Crear" class="btn btn-primary">+ Nuevo Cliente</a>
+    </div>
+
+    <div class="card shadow">
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var cliente in Model)
+                    {
+                        <tr>
+                            <td>@cliente.Id</td>
+                            <td>@cliente.Nombre</td>
+                            <td>@cliente.Email</td>
+                            <td>@cliente.Telefono</td>
+                            <td>
+                                <span class="badge @(cliente.Estado == "activo" ? "bg-success" : "bg-secondary")">
+                                    @cliente.Estado
+                                </span>
+                            </td>
+                            <td>
+                                <a href="/Clientes/Editar/@cliente.Id" class="btn btn-sm btn-warning">Editar</a>
+                                <a href="/Clientes/Eliminar/@cliente.Id" class="btn btn-sm btn-danger"
+                                   onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
